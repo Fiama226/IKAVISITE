@@ -254,11 +254,12 @@
         }
 
         /* Positioning for desktop */
+        /* Positioning for desktop */
         #step-1 { top: 15%; left: 5%; }
         #step-2 { top: 15%; left: 50%; transform: translateX(-50%); }
         #step-3 { top: 15%; right: 5%; }
-        #step-4 { top: 60%; right: 5%; }
-        #step-5 { top: 60%; left: 50%; transform: translateX(-50%); }
+        #step-4 { top: 60%; right: 5%; margin-top: 100px; }
+        #step-5 { top: 60%; left: 50%; transform: translateX(-50%); margin-top: 100px; }
 
         /* SVG Connectors */
         .connections-layer {
@@ -305,6 +306,211 @@
 
         .connector-path.active + .connector-arrow {
             fill: var(--primary);
+        }
+
+        /* ... existing styles ... */
+
+        /* Positioning for desktop */
+        #step-1 { top: 10%; left: 5%; }
+        #step-2 { top: 10%; left: 40%; transform: translateX(-50%); }
+        #step-3 { top: 10%; right: 5%; }
+        #step-4 { top: 60%; right: 5%; margin-top: 100px; }
+        #step-5 { top: 60%; left: 50%; transform: translateX(-50%); margin-top: 100px; }
+
+        /* ... */
+
+        /* Mobile Arrows */
+        .mobile-arrow-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            height: 60px;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary-light);
+        }
+
+        .step-card.active {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1), var(--shadow-lg);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: var(--shadow-lg);
+            z-index: 20;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            color: var(--primary);
+            border-radius: 18px;
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-card:hover .step-icon {
+            transform: rotate(5deg) scale(1.1);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.8;
+        }
+
+        .step-title {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .step-desc {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            min-height: 60px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .badge {
+            background-color: #f1f5f9;
+            color: #475569;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            transition: var(--transition);
+        }
+
+        .badge.highlight {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .step-card:hover .badge.highlight {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Positioning for desktop */
+        /* Positioning for desktop */
+        #step-1 { top: 15%; left: 5%; }
+        #step-2 { top: 15%; left: 40%; transform: translateX(-50%); }
+        #step-3 { top: 15%; right: 5%; }
+        #step-4 { top: 60%; right: 5%; margin-top: 100px; }
+        #step-5 { top: 60%; left: 40%; transform: translateX(-50%); margin-top: 100px; }
+
+        /* SVG Connectors */
+        .connections-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .connector-path {
+            fill: none;
+            stroke: #cbd5e1;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            transition: var(--transition);
+        }
+
+        .connector-path.active {
+            stroke: var(--primary);
+            stroke-width: 4px;
+            filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.2));
+        }
+        
+        .connector-path.animated {
+            stroke: var(--success);
+            stroke-dasharray: 12 8;
+            stroke-opacity: 0.6;
+            animation: dash 20s linear infinite;
+        }
+        
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -1000;
+            }
+        }
+
+        .connector-arrow {
+            fill: #94a3b8;
+            transition: var(--transition);
+        }
+
+        .connector-path.active + .connector-arrow {
+            fill: var(--primary);
+        }
+
+        /* Mobile Arrows */
+        .mobile-arrow-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            height: 60px;
+        }
+
+        .mobile-arrow {
+            width: 40px;
+            height: 60px;
+            stroke: #cbd5e1;
+            stroke-width: 3px;
+            transition: var(--transition);
+        }
+
+        .mobile-arrow-container.active .mobile-arrow {
+            stroke: var(--primary);
+            filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.2));
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
         }
 
         /* Process Controls */
@@ -482,9 +688,14 @@
                 left: auto !important;
                 right: auto !important;
                 transform: none !important;
-                margin-bottom: 20px;
+                margin-bottom: 0;
                 width: 90%;
                 max-width: 400px;
+                margin-top: 0 !important;
+            }
+
+            .mobile-arrow-container {
+                display: flex;
             }
             
             .connections-layer {
@@ -601,20 +812,20 @@
                 </marker>
             </defs>
 
-            <!-- 1 -> 2 -->
-            <path id="connector-1-2" d="M 280 200 H 700" class="connector-path" marker-end="url(#arrowhead)"/>
+            <!-- 1 -> 2 (Horizontal) -->
+            <path id="connector-1-2" d="M 360 200 H 550" class="connector-path" marker-end="url(#arrowhead)"/>
             
-            <!-- 2 -> 3 -->
-            <path id="connector-2-3" d="M 700 200 H 1120" class="connector-path" marker-end="url(#arrowhead)"/>
+            <!-- 2 -> 3 (Horizontal) -->
+            <path id="connector-2-3" d="M 850 200 H 1040" class="connector-path" marker-end="url(#arrowhead)"/>
             
             <!-- 3 -> 4 (Vertical down) -->
-            <path id="connector-3-4" d="M 1250 320 V 520" class="connector-path" marker-end="url(#arrowhead)"/>
+            <path id="connector-3-4" d="M 1190 320 V 510" class="connector-path" marker-end="url(#arrowhead)"/>
 
             <!-- 4 -> 5 (Horizontal left) -->
-            <path id="connector-4-5" d="M 1120 600 H 700" class="connector-path" marker-end="url(#arrowhead)"/>
+            <path id="connector-4-5" d="M 1040 640 H 850" class="connector-path" marker-end="url(#arrowhead)"/>
             
             <!-- Loop Back (New Visit) -->
-            <path id="connector-loop" d="M 700 600 Q 700 650 500 650 Q 250 650 250 400 Q 250 200 280 200" 
+            <path id="connector-loop" d="M 560 640 Q 40 640 40 420 Q 40 200 60 200" 
                   class="connector-path animated" 
                   fill="none" />
         </svg>
@@ -639,6 +850,13 @@
             </div>
         </div>
 
+        <!-- Mobile Connector 1-2 -->
+        <div class="mobile-arrow-container" id="connector-mobile-1-2">
+            <svg class="mobile-arrow" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4V44M12 44L5 37M12 44L19 37" stroke-width="3"/>
+            </svg>
+        </div>
+
         <!-- Step 2: Contrôle -->
         <div class="step-card" id="step-2" data-step="2">
             <div class="step-number">02</div>
@@ -654,6 +872,13 @@
                 <span class="badge">Alertes</span>
                 <span class="badge">Listes noires</span>
             </div>
+        </div>
+
+        <!-- Mobile Connector 2-3 -->
+        <div class="mobile-arrow-container" id="connector-mobile-2-3">
+            <svg class="mobile-arrow" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4V44M12 44L5 37M12 44L19 37" stroke-width="3"/>
+            </svg>
         </div>
 
         <!-- Step 3: Enregistrement -->
@@ -674,8 +899,15 @@
             </div>
         </div>
 
+        <!-- Mobile Connector 3-4 -->
+        <div class="mobile-arrow-container" id="connector-mobile-3-4">
+            <svg class="mobile-arrow" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4V44M12 44L5 37M12 44L19 37" stroke-width="3"/>
+            </svg>
+        </div>
+
         <!-- Step 4: Dashboard -->
-        <div class="step-card" id="step-4" data-step="4" style="margin-top: 100px;">
+        <div class="step-card" id="step-4" data-step="4">
             <div class="step-number">04</div>
             <div class="step-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -693,8 +925,15 @@
             </div>
         </div>
 
+        <!-- Mobile Connector 4-5 -->
+        <div class="mobile-arrow-container" id="connector-mobile-4-5">
+            <svg class="mobile-arrow" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4V44M12 44L5 37M12 44L19 37" stroke-width="3"/>
+            </svg>
+        </div>
+
         <!-- Step 5: Exit -->
-        <div class="step-card" id="step-5" data-step="5" style="margin-top: 100px;">
+        <div class="step-card" id="step-5" data-step="5">
             <div class="step-number">05</div>
             <div class="step-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -711,6 +950,7 @@
                 <span class="badge">RGPD</span>
             </div>
         </div>
+
 
     </div>
 
@@ -735,7 +975,7 @@
     </div>
 
     <div class="footer">
-        <p>© 2024 IKAVISITE. Tous droits réservés. Système certifié de gestion des visiteurs.</p>
+        <p>© 2026 IKAVISITE. Tous droits réservés. Système certifié de gestion des visiteurs.</p>
         <div class="footer-links">
             <a href="http://ikasolution.bf/" class="footer-link">Contact</a>
         </div>
@@ -897,6 +1137,9 @@
             if (stepNumber > 1) {
                 const connector = document.getElementById(`connector-${stepNumber-1}-${stepNumber}`);
                 if (connector) connector.classList.add('active');
+                
+                const mobileConnector = document.getElementById(`connector-mobile-${stepNumber-1}-${stepNumber}`);
+                if (mobileConnector) mobileConnector.classList.add('active');
             }
         }
         
@@ -904,6 +1147,7 @@
             clearInterval(animationInterval);
             cards.forEach(card => card.classList.remove('active'));
             connectors.forEach(connector => connector.classList.remove('active'));
+            document.querySelectorAll('.mobile-arrow-container').forEach(c => c.classList.remove('active'));
             currentStep = 0;
             startBtn.disabled = false;
         }
@@ -915,6 +1159,10 @@
                 if (incomingConnector) {
                     incomingConnector.classList.toggle('active', highlight);
                 }
+                const mobileIncoming = document.getElementById(`connector-mobile-${step-1}-${step}`);
+                if (mobileIncoming) {
+                    mobileIncoming.classList.toggle('active', highlight);
+                }
             }
             
             // Highlight outgoing connector
@@ -922,6 +1170,10 @@
                 const outgoingConnector = document.getElementById(`connector-${step}-${parseInt(step)+1}`);
                 if (outgoingConnector) {
                     outgoingConnector.classList.toggle('active', highlight);
+                }
+                const mobileOutgoing = document.getElementById(`connector-mobile-${step}-${parseInt(step)+1}`);
+                if (mobileOutgoing) {
+                    mobileOutgoing.classList.toggle('active', highlight);
                 }
             }
             
